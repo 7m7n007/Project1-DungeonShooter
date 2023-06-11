@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     private float dashTime;
     private float dashCooldownTime;
 
+ 
+    
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -30,6 +33,19 @@ public class PlayerController : MonoBehaviour
 
         // Move the player
         controller.Move(moveDirection * speed * Time.deltaTime);
+
+        //flip player
+        Vector3 characterscale=transform.localScale;
+        if(Input.GetAxis("Horizontal")<0){
+            characterscale.x=-1;
+        }
+        if(Input.GetAxis("Horizontal")>0){
+            characterscale.x=1;
+        }
+        transform.localScale=characterscale;
+
+
+        
 
         // Check if the player wants to dash
         if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTime <= 0f)
@@ -55,4 +71,6 @@ public class PlayerController : MonoBehaviour
             dashCooldownTime -= Time.deltaTime;
         }
     }
+
+    
 }
