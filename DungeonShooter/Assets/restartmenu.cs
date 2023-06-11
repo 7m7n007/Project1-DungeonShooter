@@ -9,7 +9,7 @@ public class restartmenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
     }
     public void quitbutton(){
-        Debug.Log("QUIT!");
-        Application.Quit();
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-2);
     }
 }
