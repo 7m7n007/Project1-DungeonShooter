@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class logicScript : MonoBehaviour
 {
@@ -63,6 +64,9 @@ public class logicScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(room0Completed &&room1Completed&&room2Completed&&room3Completed){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+2);
+        }
         // Debug.Log(room1Spawners[0].transform.position);
         if(!room0Completed){
             enableRoomSpawner(0);
