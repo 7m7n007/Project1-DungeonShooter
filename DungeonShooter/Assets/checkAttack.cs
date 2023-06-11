@@ -6,11 +6,13 @@ using UnityEngine;
 public class checkAttack : MonoBehaviour
 {
     private playerhealth health;
+    private logicScript logic;
     
     // Start is called before the first frame update
     void Start()
     {
         health=GetComponent<playerhealth>();
+        logic=GameObject.FindWithTag("Logic").GetComponent<logicScript>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class checkAttack : MonoBehaviour
         if (other.gameObject.tag=="Enemy"){
             health.Takedamage(20);
             Destroy(other.gameObject);
+            logic.roomEnemy[other.GetComponent<enemyMovement>().enemyRoom]-=1;
         }
     }
 }
