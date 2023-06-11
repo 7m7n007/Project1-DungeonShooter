@@ -24,7 +24,8 @@ public class ammospawn : MonoBehaviour
     private void OnTriggerEnter(Collider obj) {
         if (obj.gameObject.tag=="Player"){  
             gun.ammocapacity+=ammocount;
-            Destroy(gameObject);
+            Destroy(this);
+            Destroy(GetComponent<SpriteRenderer>());
         }
     }
 }
