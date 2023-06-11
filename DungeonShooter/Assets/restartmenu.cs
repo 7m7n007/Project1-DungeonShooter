@@ -9,11 +9,11 @@ public class restartmenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
     }
 
+
  
 
     public void quitbutton2(){
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-2);
-
     }
 }
